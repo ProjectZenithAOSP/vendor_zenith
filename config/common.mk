@@ -195,3 +195,6 @@ $(call inherit-product, vendor/gms/products/gms.mk)
 include vendor/zenith/config/version.mk
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
+
+# Fonts
+include vendor/zenith/config/fonts.mk
