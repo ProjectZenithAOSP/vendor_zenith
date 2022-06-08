@@ -179,6 +179,7 @@ PRODUCT_PACKAGE_OVERLAYS += \
     vendor/zenith/overlay/common
 
 PRODUCT_PACKAGES += \
+    CustomFontPixelLauncherOverlay \
     DocumentsUIOverlay \
     NetworkStackOverlay
 
