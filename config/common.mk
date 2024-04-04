@@ -30,6 +30,22 @@ endif
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += persist.sys.strictmode.disable=true
 endif
 
+ifeq ($(TARGET_INCLUDE_PIXEL_LAUNCHER), true)
+# Pixel Launcher
+PRODUCT_SYSTEM_PROPERTIES += \
+    persist.sys.default_launcher=1 \
+    persist.sys.quickswitch_pixel_shipped=1
+else
+# Launcher3
+PRODUCT_SYSTEM_PROPERTIES += \
+    persist.sys.default_launcher=0 \
+    persist.sys.quickswitch_pixel_shipped=0
+endif
+
+# Launchers overlay
+PRODUCT_PACKAGES += \
+    AndroidOverlay
+
 # Backup Tool
 PRODUCT_COPY_FILES += \
     vendor/zenith/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
