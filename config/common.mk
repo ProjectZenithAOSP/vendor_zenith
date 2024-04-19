@@ -259,8 +259,12 @@ CUSTOM_LOCALES += \
     cy_GB \
     fur_IT
 
-# Google apps and services
-$(call inherit-product, vendor/gms/products/gms.mk)
+# Vanilla and GAPPS
+ifeq ($(WITH_GAPPS), true)
+$(call inherit-product-if-exists, vendor/gms/products/gms.mk)
+else
+include vendor/zenith/config/vanilla.mk
+endif
 
 include vendor/zenith/config/version.mk
 
