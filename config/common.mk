@@ -320,5 +320,9 @@ endif
 # Fonts
 include vendor/zenith/config/fonts.mk
 
+# BtHelper
+PRODUCT_PACKAGES += \
+    BtHelper
+    
 # Lawnchair
 $(call inherit-product, vendor/lawnchair/product.mk)
