@@ -308,3 +308,8 @@ endif
 
 # Fonts
 include vendor/zenith/config/fonts.mk
+
+# BtHelper
+PRODUCT_PACKAGES += \
+    BtHelper
+    
