@@ -293,8 +293,11 @@ PRODUCT_PACKAGES += \
 # Vanilla and GAPPS
 ifeq ($(WITH_GAPPS), true)
 $(call inherit-product-if-exists, vendor/gms/products/gms.mk)
+    PRODUCT_PACKAGES += OTAGapps
 else
 include vendor/zenith/config/vanilla.mk
+
+PRODUCT_PACKAGES += OTAVanilla
 endif
 
 include vendor/zenith/config/version.mk
