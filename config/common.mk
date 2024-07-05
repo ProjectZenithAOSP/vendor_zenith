@@ -241,6 +241,9 @@ $(call inherit-product, vendor/gms/products/gms.mk)
 
 include vendor/zenith/config/version.mk
 
+# Optimisation
+$(call inherit-product, vendor/zenith/config/common/optimisation.mk)
+
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 
 # Fonts
