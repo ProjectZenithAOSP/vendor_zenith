@@ -234,6 +234,13 @@ PRODUCT_PACKAGES += \
     NetworkStackOverlay \
     PermissionControllerOverlay
 
+# Transparent recents in pixel launcher
+TARGET_USES_BLUR_RECENT ?= true
+ifeq ($(TARGET_USES_BLUR_RECENT), true)
+PRODUCT_PACKAGES += \
+    PixelLauncherOverlayBlur
+endif
+
 # Translations
 CUSTOM_LOCALES += \
     ast_ES \
