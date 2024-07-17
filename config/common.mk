@@ -260,6 +260,11 @@ PRODUCT_PACKAGES += \
     NetworkStackOverlay \
     PermissionControllerOverlay
 
+# Cache clenaer
+PRODUCT_PACKAGES += \
+    init.cache_cleaner.rc \
+    init.cache_cleaner.sh
+
 # Transparent recents in pixel launcher
 TARGET_USES_BLUR_RECENT ?= true
 ifeq ($(TARGET_USES_BLUR_RECENT), true)
