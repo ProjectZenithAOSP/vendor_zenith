@@ -218,7 +218,8 @@ endif
 # SystemUI
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     NexusLauncherRelease \
-    SystemUI
+    SystemUI \
+    Lawnchair
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     dalvik.vm.systemuicompilerfilter=speed
