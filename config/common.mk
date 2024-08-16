@@ -42,6 +42,10 @@ PRODUCT_SYSTEM_PROPERTIES += \
     persist.sys.quickswitch_pixel_shipped=0
 endif
 
+# Launcher3
+PRODUCT_PACKAGES += \
+    Launcher3QuickStep
+
 # Launchers overlay
 PRODUCT_PACKAGES += \
     AndroidOverlay
