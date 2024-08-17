@@ -23,6 +23,7 @@ SHA256 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/sha256sum
 $(ZENITH_TARGET_PACKAGE): $(INTERNAL_OTA_PACKAGE_TARGET)
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(ZENITH_TARGET_PACKAGE)
 	$(hide) $(SHA256) $(ZENITH_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(ZENITH_TARGET_PACKAGE).sha256sum
+	$(hide) ./vendor/zenith/tools/generate_json_build_info.sh $(TARGET_DEVICE) $(PRODUCT_OUT) $(ZENITH_VERSION).zip $(PLATFORM_VERSION)
 	@echo "Package Complete: $(ZENITH_TARGET_PACKAGE)" >&2
 
 .PHONY: zenith
