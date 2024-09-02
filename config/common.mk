@@ -284,6 +284,10 @@ CUSTOM_LOCALES += \
     cy_GB \
     fur_IT
 
+# Wallpaper
+PRODUCT_PACKAGES += \
+    ZenWalls
+
 # Vanilla and GAPPS
 ifeq ($(WITH_GAPPS), true)
 $(call inherit-product-if-exists, vendor/gms/products/gms.mk)
