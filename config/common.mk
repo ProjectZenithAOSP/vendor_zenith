@@ -282,6 +282,10 @@ CUSTOM_LOCALES += \
 # Google apps and services
 $(call inherit-product, vendor/gms/products/gms.mk)
 
+# Wallpaper
+PRODUCT_PACKAGES += \
+    ZenWalls
+
 include vendor/zenith/config/version.mk
 
 # Optimisation
