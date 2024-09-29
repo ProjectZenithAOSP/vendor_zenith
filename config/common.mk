@@ -289,6 +289,11 @@ $(call inherit-product, vendor/gms/products/gms.mk)
 PRODUCT_PACKAGES += \
     ZenWalls
 
+# LMO - Addoms
+PRODUCT_PACKAGES += \
+    LMOFreeform \
+    LMOFreeformSidebar 
+    
 include vendor/zenith/config/version.mk
 
 # Optimisation
