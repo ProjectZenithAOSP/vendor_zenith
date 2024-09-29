@@ -290,6 +290,11 @@ CUSTOM_LOCALES += \
 PRODUCT_PACKAGES += \
     ZenWalls
 
+# LMO - Addoms
+PRODUCT_PACKAGES += \
+    LMOFreeform \
+    LMOFreeformSidebar 
+    
 # Vanilla and GAPPS
 ifeq ($(WITH_GAPPS), true)
 $(call inherit-product-if-exists, vendor/gms/products/gms.mk)
