@@ -260,6 +260,11 @@ include vendor/zenith/config/version.mk
 # Optimisation
 $(call inherit-product, vendor/zenith/config/common/optimisation.mk)
 
+# Apps
+ifeq ($(ADD_CUSTOM_APPS),true)
+$(call inherit-product, vendor/apps/apps.mk)
+endif
+
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 
 # Fonts
