@@ -208,6 +208,7 @@ PRODUCT_PACKAGE_OVERLAYS += \
     vendor/zenith/overlay/common
 
 PRODUCT_PACKAGES += \
+    AndroidBlackThemeOverlay \
     CustomFontPixelLauncherOverlay \
     DocumentsUIOverlay \
     NavigationBarNoHintOverlay \
