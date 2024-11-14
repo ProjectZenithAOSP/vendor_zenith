@@ -6,6 +6,9 @@ $(call inherit-product, vendor/zenith/config/bootanimation.mk)
 
 PRODUCT_BRAND ?= ProjectZenith
 
+# Certification
+$(call inherit-product-if-exists, vendor/certification/config.mk)
+
 ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.com.google.clientidbase=android-google
