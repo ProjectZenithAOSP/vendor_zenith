@@ -305,6 +305,10 @@ include vendor/zenith/config/version.mk
 # Optimisation
 $(call inherit-product, vendor/zenith/config/common/optimisation.mk)
 
+# Disable default frame rate limit for games
+PRODUCT_PRODUCT_PROPERTIES += \
+    debug.graphics.game_default_frame_rate.disabled=true
+    
 # Apps
 ifeq ($(ADD_CUSTOM_APPS),true)
 $(call inherit-product, vendor/apps/apps.mk)
