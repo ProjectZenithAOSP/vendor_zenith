@@ -106,6 +106,9 @@ PRODUCT_COPY_FILES += \
 # leave less information available via JDWP.
 PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 
+# Disable userdata image build
+PRODUCT_BUILD_USERDATA_IMAGE := false
+
 # Disable vendor restrictions
 PRODUCT_RESTRICT_VENDOR_FILES := false
 
