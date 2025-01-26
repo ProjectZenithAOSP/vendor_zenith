@@ -16,7 +16,7 @@
 #
 
 # $1=TARGET_DEVICE, $2=PRODUCT_OUT, $3=FILE_NAME
-existingOTAjson=./vendor/official_devices/builds/$1.json
+existingOTAjson=./vendor/ota/devices/$1.json
 output=$2/$1.json
 version=$4
 
@@ -33,7 +33,7 @@ if [ -f $existingOTAjson ]; then
         oem=`grep -n "\"oem\"" $existingOTAjson | cut -d ":" -f 3 | sed 's/"//g' | sed 's/,//g' | xargs`
         device=`grep -n "\"device\"" $existingOTAjson | cut -d ":" -f 3 | sed 's/"//g' | sed 's/,//g' | xargs`
         filename=$3
-        version=$(grep ro\.zenith\.display\.version ./out/target/product/$1/system/build.prop | cut -d= -f2);
+        version=$(grep ro\.zenith\.display\.version ./out/target/product/$1/system/build.prop | cut -d= -f2)
         buildprop=$2/system/build.prop
         linenr=`grep -n "ro.system.build.date.utc" $buildprop | cut -d':' -f1`
         timestamp=`sed -n $linenr'p' < $buildprop | cut -d'=' -f2`
@@ -50,7 +50,9 @@ if [ -f $existingOTAjson ]; then
         if [ ! -z "$telegram" ]; then
                 telegram="https:"$telegram
         fi
-
+        
+        # Extract the device codename
+        codename=$(grep ro\.zenith\.device ./out/target/product/$1/system/build.prop | cut -d= -f2 | xargs)
 
         echo '{
         "response": [
@@ -58,6 +60,7 @@ if [ -f $existingOTAjson ]; then
                         "maintainer": "'$maintainer'",
                         "oem": "'$oem'",
                         "device": "'$device'",
+                        "codename": "'$codename'",
                         "version": "'$version'",
                         "filename": "'$filename'",
                         "download": "",
@@ -66,7 +69,7 @@ if [ -f $existingOTAjson ]; then
                         "sha256": "'$sha256'",
                         "size": '$size',
                         "buildtype": "'$buildtype'",
-                        "is_active": "'$is_active'"
+                        "is_active": "'$is_active'",
                         "forum": "'$forum'",
                         "telegram": "'$telegram'"
                 }
@@ -82,12 +85,16 @@ else
         sha256=`sha256sum "$2/$3" | cut -d' ' -f1`
         size=`stat -c "%s" "$2/$3"`
 
+        # Extract the device codename
+        codename=$(grep ro\.zenith\.device ./out/target/product/$1/system/build.prop | cut -d= -f2 | xargs)
+
         echo '{
         "response": [
                 {
                         "maintainer": "''",
                         "oem": "''",
                         "device": "''",
+                        "codename": "'$codename'",
                         "version": "'$version'",
                         "filename": "'$filename'",
                         "download": "",
@@ -96,7 +103,7 @@ else
                         "sha256": "'$sha256'",
                         "size": '$size',
                         "buildtype": "''",
-                        "is_active":"''"
+                        "is_active":"''",
                         "forum": "''",
                         "telegram": "''"
                 }
@@ -104,7 +111,8 @@ else
 }' >> $output
 
         echo 'There is no official support for this device yet'
-        echo 'Apply from '
+        echo 'Apply from https://github.com/ProjectZenithAOSP/Wiki/issues/new?template=device-maintainer-form.yml'
 fi
 
 echo ""
+
