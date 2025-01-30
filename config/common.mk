@@ -35,6 +35,9 @@ ifeq ($(TARGET_INCLUDE_PIXEL_LAUNCHER), true)
 PRODUCT_SYSTEM_PROPERTIES += \
     persist.sys.default_launcher=1 \
     persist.sys.quickswitch_pixel_shipped=1
+    
+PRODUCT_PACKAGES += \
+    GoogleSettingsOverlayNexus
 else
 # Launcher3
 PRODUCT_SYSTEM_PROPERTIES += \
