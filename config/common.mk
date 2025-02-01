@@ -282,3 +282,6 @@ endif
 
 # Fonts
 include vendor/zenith/config/fonts.mk
+
+# Lawnchair
+$(call inherit-product, vendor/lawnchair/product.mk)
