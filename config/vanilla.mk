@@ -1,17 +1,5 @@
 # Basic
 PRODUCT_PACKAGES += \
-    Contacts \
-    Dialer \
-    DeskClock \
-    Eleven \
-    Etar \
-    ExactCalculator \
-    Glimpse \
-    Jelly \
-    Recorder \
-    Seedvault \
-    messaging \
-    LatinIME \
     SettingsIntelligence \
     ThemePicker \
     WallpaperPicker2 \
@@ -19,3 +7,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     Launcher3QuickStep
+    
+# Vanilla Apps
+$(call inherit-product, vendor/vanilla/vanilla.mk)
