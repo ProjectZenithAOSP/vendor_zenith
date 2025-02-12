@@ -15,3 +15,9 @@ prebuilt_etc {
     src: "etc/init/init.cache_cleaner.rc",
     sub_dir: "init",
 }
+
+java_import {
+    name: "vendor.aac.hardware.richtap.vibrator",
+    jars: ["lib/vendorAacHardwareRichtapVibrator.jar"],
+    sdk_version: "current",
+}
