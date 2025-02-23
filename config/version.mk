@@ -17,7 +17,6 @@ PRODUCT_SYSTEM_PROPERTIES += \
     ro.zenith.display.version=$(ZENITH_DISPLAY_VERSION) \
     ro.zenith.build.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(ZENITH_CODENAME) \
     ro.zenith.releasetype=$(ZENITH_BUILDTYPE) \
-    ro.modversion=$(ZENITH_VERSION)
 
 # Signing
 -include vendor/zenith-priv/keys/keys.mk
